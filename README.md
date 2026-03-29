@@ -1,7 +1,7 @@
 # swift_field
 
 
-[![pub.dev](https://img.shields.io/pub/v/app_snackbar.svg)](https://pub.dev/packages/app_snackbar)
+[![pub.dev](https://img.shields.io/pub/v/swift_field.svg)](https://pub.dev/packages/app_snackbar)
 [![Flutter](https://img.shields.io/badge/Flutter-3.16+-blue.svg)](https://flutter.dev)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
