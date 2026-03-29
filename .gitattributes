@@ -1,0 +1,7 @@
+# Ignore generated dart doc
+doc/api/**        linguist-generated=true
+
+# Ignore example platform boilerplate
+example/windows/** linguist-generated=true
+example/linux/**   linguist-generated=true
+example/macos/**   linguist-generated=true
