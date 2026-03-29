@@ -11,10 +11,10 @@ A highly customizable Flutter UI package for building production-grade forms —
 ## Screenshots
 <table>
   <tr>
-    <td><img src="https://raw.githubusercontent.com/spatelpatidar/app_snackbar/main/screenshots/showcase.png" width="200" alt="showcase.png"/></td>
-    <td><img src="https://raw.githubusercontent.com/spatelpatidar/app_snackbar/main/screenshots/error.png" width="200" alt="error.png"/></td>
-    <td><img src="https://raw.githubusercontent.com/spatelpatidar/app_snackbar/main/screenshots/top_position.png" width="200" alt="top_position.png"/></td>
-    <td><img src="https://raw.githubusercontent.com/spatelpatidar/app_snackbar/main/screenshots/code_preview.png" width="200" alt="code_preview.png"/></td>
+    <td><img src="https://raw.githubusercontent.com/spatelpatidar/swift_field/main/screenshots/dropdown_search.png" width="200" alt="showcase.png"/></td>
+    <td><img src="https://raw.githubusercontent.com/spatelpatidar/swift_field/main/screenshots/dropdown.png" width="200" alt="error.png"/></td>
+    <td><img src="https://raw.githubusercontent.com/spatelpatidar/swift_field/main/screenshots/button_with_icon.png" width="200" alt="top_position.png"/></td>
+    <td><img src="https://raw.githubusercontent.com/spatelpatidar/swift_field/main/screenshots/button_gradiant.png" width="200" alt="code_preview.png"/></td>
   </tr>
 </table>
 
@@ -38,7 +38,7 @@ A highly customizable Flutter UI package for building production-grade forms —
 
 ```yaml
 dependencies:
-  swift_field: ^0.0.1
+  swift_field: ^0.1.0
 ```
 
 Then import:
