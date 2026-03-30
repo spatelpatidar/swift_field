@@ -279,7 +279,7 @@ class _ExampleScreenState extends State<ExampleScreen> {
                   // Android spinner (default)
                   SFIconButton(
                     text: 'Android',
-                    icon: Icons.save_outlined,
+                    icon: Icons.android,
                     onPressed: _submitIcon,
                     isLoading: _isLoadingIcon,
                     spinnerStyle: SFSpinnerStyle.android,

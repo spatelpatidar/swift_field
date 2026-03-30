@@ -1,3 +1,8 @@
+## 0.1.1
+
+### Enhancements
+* `SFSpinnerStyle.ios` — increased `CupertinoActivityIndicator` radius from `spinnerSize / 2` to `spinnerSize / 1.5` for better visibility
+
 ## 0.1.0
 
 ### Breaking Changes

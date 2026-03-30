@@ -260,7 +260,7 @@ class SFIconButton extends StatelessWidget {
           valueColor: AlwaysStoppedAnimation<Color>(textColor),
         ),
         SFSpinnerStyle.ios => CupertinoActivityIndicator(
-          radius: spinnerSize / 2,
+          radius: spinnerSize / 1.5,
           color: textColor,
         ),
       },

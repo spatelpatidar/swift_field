@@ -38,7 +38,7 @@ A highly customizable Flutter UI package for building production-grade forms —
 
 ```yaml
 dependencies:
-  swift_field: ^0.1.0
+  swift_field: ^0.1.1
 ```
 
 Then import:

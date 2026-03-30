@@ -1,12 +1,16 @@
 name: swift_field
-description: >-
-  Production-grade Flutter form widgets with zero external dependencies.
-    Includes text fields, password fields, searchable dropdowns, and buttons
-    with gradient and loading support.
-version: 0.1.0
+description: "Production-grade Flutter form widgets: text fields, password fields, searchable dropdowns, and gradient buttons. Zero dependencies."
+version: 0.1.1
 homepage: https://github.com/spatelpatidar/swift_field
 repository: https://github.com/spatelpatidar/swift_field
 issue_tracker: https://github.com/spatelpatidar/swift_field/issues
+
+topics:
+  - text-field
+  - dropdown
+  - button
+  - dropdown-search
+  - widgets
 
 screenshots:
   - description: 'Button and Icon: All Button have two type icon with button and Simple Button'
