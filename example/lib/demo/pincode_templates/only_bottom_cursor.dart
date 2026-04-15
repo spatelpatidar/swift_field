@@ -1,0 +1,78 @@
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:swift_field/swift_field.dart';
+
+class OnlyBottomCursor extends StatefulWidget {
+  const OnlyBottomCursor({super.key});
+
+  @override
+  _OnlyBottomCursorState createState() => _OnlyBottomCursorState();
+
+  @override
+  String toStringShort() => 'With Bottom Cursor';
+}
+
+class _OnlyBottomCursorState extends State<OnlyBottomCursor> {
+  final controller = TextEditingController();
+  final focusNode = FocusNode();
+
+  @override
+  void dispose() {
+    controller.dispose();
+    focusNode.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    const borderColor = Color.fromRGBO(30, 60, 87, 1);
+
+    final defaultPinTheme = SFPinTheme(
+      width: 56,
+      height: 56,
+      textStyle: GoogleFonts.poppins(
+        fontSize: 22,
+        color: const Color.fromRGBO(30, 60, 87, 1),
+      ),
+      decoration: const BoxDecoration(),
+    );
+
+    final cursor = Column(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        Container(
+          width: 56,
+          height: 3,
+          decoration: BoxDecoration(
+            color: borderColor,
+            borderRadius: BorderRadius.circular(8),
+          ),
+        ),
+      ],
+    );
+    final preFilledWidget = Column(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        Container(
+          width: 56,
+          height: 3,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(8),
+          ),
+        ),
+      ],
+    );
+
+    return SFPinCode(
+      length: 5,
+      pinAnimationType: SFPinAnimationType.slide,
+      controller: controller,
+      focusNode: focusNode,
+      defaultSFPinTheme: defaultPinTheme,
+      showCursor: true,
+      cursor: cursor,
+      preFilledWidget: preFilledWidget,
+    );
+  }
+}

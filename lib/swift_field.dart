@@ -10,6 +10,7 @@ export 'src/button/sf_button.dart';
 export 'src/button/sf_icon_button.dart';
 export 'src/dropdown/sf_dropdown.dart';
 export 'src/dropdown/sf_dropdown_search.dart';
+export 'src/pin/sf_pin_code.dart';
 export 'src/text_field/sf_password_field.dart';
 export 'src/text_field/sf_text_field.dart';
 export 'src/theme/sf_theme.dart';
