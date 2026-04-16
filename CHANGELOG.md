@@ -1,7 +1,29 @@
+## 0.2.0
+
+### New Widgets
+* `SFPinCode` — fully customizable Pin / OTP input field powered by [Pinput](https://github.com/Tkko/Flutter_Pinput)
+  * **Per-state themes** — independent `SFPinTheme` for default, focused, submitted, following, disabled, and error states
+  * **Mixed shapes** — each state can use a completely different `BoxDecoration` shape (circle, rounded, square, underline, gradient, or any custom decoration)
+  * **Smooth animation** — decoration properties (color, border, border-radius, size) tween automatically between state changes
+  * **Entry animations** — `SFPinAnimationType`: `none`, `scale`, `fade`, `slide`, `rotation`
+  * **Validation** — `validator`, `errorText`, `forceErrorState`, `errorBuilder`, `sfPinAutovalidateMode`
+  * **Haptic feedback** — `SFHapticFeedbackType`: `lightImpact`, `mediumImpact`, `heavyImpact`, `selectionClick`, `vibrate`
+  * **Obscure text** — custom `obscuringCharacter` or any `obscuringWidget`
+  * **Custom cursor** — standard blinking cursor or pass any `Widget` as `cursor`
+  * **SMS Autofill** — iOS OneTimeCode out of the box; Android via `smsRetriever`
+  * **Custom separator** — insert any widget between boxes via `separatorBuilder`
+  * **Builder constructor** — `SFPinCode.builder` for 100% custom box widget per state
+  * **Controller helpers** — `setText`, `append`, `delete`, `clear`
+* `SFPinTheme` — per-state decoration model with `copyWith`, `copyDecorationWith`, `copyBorderWith`
+
+---
+
 ## 0.1.1
 
 ### Enhancements
 * `SFSpinnerStyle.ios` — increased `CupertinoActivityIndicator` radius from `spinnerSize / 2` to `spinnerSize / 1.5` for better visibility
+
+---
 
 ## 0.1.0
 
@@ -25,6 +47,8 @@
 * Fixed `SFDropdownSearch` `FilterCallback` return type (`List` not `Iterable`)
 * Fixed `SFDropdownSearch` search text appearing in main field instead of
   inside the dropdown panel
+
+---
 
 ## 0.0.1
 
