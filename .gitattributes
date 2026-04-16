@@ -1,2 +1,10 @@
 # Ignore generated dart doc
 doc/api/**        linguist-generated=true
+doc/** linguist-documentation
+doc/** linguist-vendored
+
+# Ignore web boilerplate in example
+example/web/** linguist-documentation
+
+# If you accidentally committed build files
+build/** linguist-vendored
