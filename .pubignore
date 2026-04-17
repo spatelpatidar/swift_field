@@ -1,0 +1,18 @@
+# Build and temporary files
+build/
+.dart_tool/
+.packages
+pubspec.lock
+
+# Test coverage results
+coverage/
+test_cache/
+
+# IDE files
+.vscode/
+.idea/
+*.iml
+
+# OS files
+.DS_Store
+Thumbs.db
