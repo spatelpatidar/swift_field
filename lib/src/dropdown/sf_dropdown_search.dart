@@ -41,7 +41,10 @@ import 'sf_dropdown.dart';
 /// ```
 class SFDropdownSearch<T> extends StatefulWidget {
   const SFDropdownSearch({
-    required this.labelText, required this.items, required this.onChanged, super.key,
+    required this.labelText,
+    required this.items,
+    required this.onChanged,
+    super.key,
     this.value,
     this.prefixIcon,
     this.validator,
@@ -121,9 +124,9 @@ class _SFDropdownSearchState<T> extends State<SFDropdownSearch<T>> {
       _filtered = query.isEmpty
           ? widget.items
           : widget.items.where((item) {
-        if (widget.filterFn != null) return widget.filterFn!(item, query);
-        return item.label.toLowerCase().contains(query.toLowerCase());
-      }).toList();
+              if (widget.filterFn != null) return widget.filterFn!(item, query);
+              return item.label.toLowerCase().contains(query.toLowerCase());
+            }).toList();
     });
   }
 
@@ -169,8 +172,9 @@ class _SFDropdownSearchState<T> extends State<SFDropdownSearch<T>> {
 
     return FormField<T>(
       initialValue: _currentValue,
-      validator:
-      widget.validator != null ? (_) => widget.validator!(_currentValue) : null,
+      validator: widget.validator != null
+          ? (_) => widget.validator!(_currentValue)
+          : null,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       builder: (field) {
         return Column(
@@ -200,14 +204,14 @@ class _SFDropdownSearchState<T> extends State<SFDropdownSearch<T>> {
                           border: SFTheme.defaultBorder,
                           enabledBorder: field.hasError
                               ? OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(
-                                SFTheme.borderRadius),
-                            borderSide: BorderSide(
-                                color: theme.colorScheme.error),
-                          )
+                                  borderRadius: BorderRadius.circular(
+                                      SFTheme.borderRadius),
+                                  borderSide: BorderSide(
+                                      color: theme.colorScheme.error),
+                                )
                               : _isOpen
-                              ? SFTheme.focusedBorder
-                              : SFTheme.enabledBorder,
+                                  ? SFTheme.focusedBorder
+                                  : SFTheme.enabledBorder,
                           focusedBorder: SFTheme.focusedBorder,
                           contentPadding: const EdgeInsets.symmetric(
                               horizontal: 12, vertical: 14),
@@ -237,7 +241,7 @@ class _SFDropdownSearchState<T> extends State<SFDropdownSearch<T>> {
                 child: Text(
                   field.errorText!,
                   style:
-                  TextStyle(color: theme.colorScheme.error, fontSize: 12),
+                      TextStyle(color: theme.colorScheme.error, fontSize: 12),
                 ),
               ),
           ],
@@ -342,10 +346,10 @@ class _DropdownPanel<T> extends StatelessWidget {
                     valueListenable: searchController,
                     builder: (_, value, __) => value.text.isNotEmpty
                         ? IconButton(
-                      icon: const Icon(Icons.clear, size: 18),
-                      onPressed: searchController.clear,
-                      splashRadius: 16,
-                    )
+                            icon: const Icon(Icons.clear, size: 18),
+                            onPressed: searchController.clear,
+                            splashRadius: 16,
+                          )
                         : const SizedBox.shrink(),
                   ),
                   border: OutlineInputBorder(
@@ -357,11 +361,11 @@ class _DropdownPanel<T> extends StatelessWidget {
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
-                    borderSide: BorderSide(
-                        color: SFTheme.primaryColor, width: 1.5),
+                    borderSide:
+                        BorderSide(color: SFTheme.primaryColor, width: 1.5),
                   ),
-                  contentPadding: const EdgeInsets.symmetric(
-                      horizontal: 12, vertical: 10),
+                  contentPadding:
+                      const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
                   isDense: true,
                 ),
               ),
@@ -373,70 +377,69 @@ class _DropdownPanel<T> extends StatelessWidget {
             Flexible(
               child: filtered.isEmpty
                   ? Padding(
-                padding: const EdgeInsets.all(20),
-                child: Text(
-                  'No results found',
-                  style: TextStyle(color: Colors.grey.shade500),
-                  textAlign: TextAlign.center,
-                ),
-              )
+                      padding: const EdgeInsets.all(20),
+                      child: Text(
+                        'No results found',
+                        style: TextStyle(color: Colors.grey.shade500),
+                        textAlign: TextAlign.center,
+                      ),
+                    )
                   : ListView.builder(
-                padding: const EdgeInsets.symmetric(vertical: 6),
-                shrinkWrap: true,
-                itemCount: filtered.length,
-                itemBuilder: (_, index) {
-                  final item = filtered[index];
-                  final isSelected = item.value == currentValue;
+                      padding: const EdgeInsets.symmetric(vertical: 6),
+                      shrinkWrap: true,
+                      itemCount: filtered.length,
+                      itemBuilder: (_, index) {
+                        final item = filtered[index];
+                        final isSelected = item.value == currentValue;
 
-                  return InkWell(
-                    onTap: item.enabled ? () => onSelect(item) : null,
-                    borderRadius: BorderRadius.circular(8),
-                    child: Container(
-                      margin: const EdgeInsets.symmetric(
-                          horizontal: 6, vertical: 2),
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 12, vertical: 11),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        color: isSelected
-                            ? SFTheme.primaryColor.withValues(alpha: 0.08)
-                            : null,
-                      ),
-                      child: Row(
-                        children: [
-                          if (item.leadingIcon != null) ...[
-                            item.leadingIcon!,
-                            const SizedBox(width: 10),
-                          ],
-                          Expanded(
-                            child: item.child ??
-                                Text(
-                                  item.label,
-                                  style: theme.textTheme.bodyMedium
-                                      ?.copyWith(
-                                    color: !item.enabled
-                                        ? Colors.grey.shade400
-                                        : isSelected
-                                        ? SFTheme.primaryColor
-                                        : null,
-                                    fontWeight: isSelected
-                                        ? FontWeight.w600
-                                        : FontWeight.normal,
-                                  ),
+                        return InkWell(
+                          onTap: item.enabled ? () => onSelect(item) : null,
+                          borderRadius: BorderRadius.circular(8),
+                          child: Container(
+                            margin: const EdgeInsets.symmetric(
+                                horizontal: 6, vertical: 2),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 12, vertical: 11),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8),
+                              color: isSelected
+                                  ? SFTheme.primaryColor.withValues(alpha: 0.08)
+                                  : null,
+                            ),
+                            child: Row(
+                              children: [
+                                if (item.leadingIcon != null) ...[
+                                  item.leadingIcon!,
+                                  const SizedBox(width: 10),
+                                ],
+                                Expanded(
+                                  child: item.child ??
+                                      Text(
+                                        item.label,
+                                        style: theme.textTheme.bodyMedium
+                                            ?.copyWith(
+                                          color: !item.enabled
+                                              ? Colors.grey.shade400
+                                              : isSelected
+                                                  ? SFTheme.primaryColor
+                                                  : null,
+                                          fontWeight: isSelected
+                                              ? FontWeight.w600
+                                              : FontWeight.normal,
+                                        ),
+                                      ),
                                 ),
+                                if (item.trailingIcon != null)
+                                  item.trailingIcon!,
+                                if (isSelected)
+                                  Icon(Icons.check,
+                                      size: 18, color: SFTheme.primaryColor),
+                              ],
+                            ),
                           ),
-                          if (item.trailingIcon != null)
-                            item.trailingIcon!,
-                          if (isSelected)
-                            Icon(Icons.check,
-                                size: 18,
-                                color: SFTheme.primaryColor),
-                        ],
-                      ),
+                        );
+                      },
                     ),
-                  );
-                },
-              ),
             ),
           ],
         ),

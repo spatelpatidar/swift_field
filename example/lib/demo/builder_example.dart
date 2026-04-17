@@ -5,7 +5,8 @@ class SFPincodeBuilderExample extends StatefulWidget {
   const SFPincodeBuilderExample({super.key});
 
   @override
-  State<SFPincodeBuilderExample> createState() => _SFPincodeBuilderExampleState();
+  State<SFPincodeBuilderExample> createState() =>
+      _SFPincodeBuilderExampleState();
 }
 
 class _SFPincodeBuilderExampleState extends State<SFPincodeBuilderExample> {

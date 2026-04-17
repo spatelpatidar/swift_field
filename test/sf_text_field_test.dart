@@ -49,7 +49,7 @@ void main() {
       ));
 
       final editableText =
-      tester.widget<EditableText>(find.byType(EditableText));
+          tester.widget<EditableText>(find.byType(EditableText));
       expect(editableText.readOnly, isTrue);
     });
 
@@ -84,7 +84,7 @@ void main() {
               controller: controller,
               labelText: 'Name',
               validator: (val) =>
-              val == null || val.isEmpty ? 'Required' : null,
+                  val == null || val.isEmpty ? 'Required' : null,
             ),
           ),
         ),
@@ -171,24 +171,24 @@ void main() {
     });
 
     testWidgets('text is obscured by default — checked via EditableText',
-            (tester) async {
-          final controller = TextEditingController();
-          addTearDown(controller.dispose);
+        (tester) async {
+      final controller = TextEditingController();
+      addTearDown(controller.dispose);
 
-          await tester.pumpWidget(MaterialApp(
-            home: Scaffold(
-              body: SFPasswordField(
-                controller: controller,
-                labelText: 'Password',
-              ),
-            ),
-          ));
+      await tester.pumpWidget(MaterialApp(
+        home: Scaffold(
+          body: SFPasswordField(
+            controller: controller,
+            labelText: 'Password',
+          ),
+        ),
+      ));
 
-          // TextFormField doesn't expose obscureText — check EditableText instead
-          final editableText =
+      // TextFormField doesn't expose obscureText — check EditableText instead
+      final editableText =
           tester.widget<EditableText>(find.byType(EditableText));
-          expect(editableText.obscureText, isTrue);
-        });
+      expect(editableText.obscureText, isTrue);
+    });
 
     testWidgets('tapping suffix icon reveals text', (tester) async {
       final controller = TextEditingController();
@@ -283,7 +283,7 @@ void main() {
               controller: controller,
               labelText: 'Password',
               validator: (val) =>
-              val != null && val.length < 8 ? 'Min 8 chars' : null,
+                  val != null && val.length < 8 ? 'Min 8 chars' : null,
             ),
           ),
         ),

@@ -1,6 +1,6 @@
 name: swift_field
 description: "Production-grade Flutter form widgets: text fields, password fields, searchable dropdowns, and gradient buttons. Zero dependencies."
-version: 0.1.2
+version: 0.2.0
 homepage: https://github.com/spatelpatidar/swift_field
 repository: https://github.com/spatelpatidar/swift_field
 issue_tracker: https://github.com/spatelpatidar/swift_field/issues

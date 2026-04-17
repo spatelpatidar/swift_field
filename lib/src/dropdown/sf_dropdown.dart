@@ -53,7 +53,10 @@ import 'package:swift_field/swift_field.dart';
 /// ```
 class SFDropdown<T> extends StatefulWidget {
   const SFDropdown({
-    required this.labelText, required this.items, required this.onChanged, super.key,
+    required this.labelText,
+    required this.items,
+    required this.onChanged,
+    super.key,
     this.value,
     this.prefixIcon,
     this.validator,
@@ -117,8 +120,9 @@ class _SFDropdownState<T> extends State<SFDropdown<T>> {
 
     return FormField<T>(
       initialValue: _currentValue,
-      validator:
-          widget.validator != null ? (_) => widget.validator!(_currentValue) : null,
+      validator: widget.validator != null
+          ? (_) => widget.validator!(_currentValue)
+          : null,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       builder: (field) {
         return Column(
@@ -132,20 +136,25 @@ class _SFDropdownState<T> extends State<SFDropdown<T>> {
                   initialSelection: _currentValue,
                   label: Text(widget.labelText),
                   hintText: widget.hintText,
-                  leadingIcon: widget.prefixIcon != null ? Icon(widget.prefixIcon) : null,
+                  leadingIcon: widget.prefixIcon != null
+                      ? Icon(widget.prefixIcon)
+                      : null,
                   inputDecorationTheme: InputDecorationTheme(
                     border: SFTheme.defaultBorder,
                     enabledBorder: field.hasError
                         ? OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(SFTheme.borderRadius),
-                            borderSide: BorderSide(color: theme.colorScheme.error),
+                            borderRadius:
+                                BorderRadius.circular(SFTheme.borderRadius),
+                            borderSide:
+                                BorderSide(color: theme.colorScheme.error),
                           )
                         : SFTheme.enabledBorder,
                     focusedBorder: SFTheme.focusedBorder,
-                    contentPadding:
-                        const EdgeInsets.symmetric(horizontal: 12, vertical: 14),
+                    contentPadding: const EdgeInsets.symmetric(
+                        horizontal: 12, vertical: 14),
                     filled: !widget.enabled,
-                    fillColor: !widget.enabled ? SFTheme.readOnlyFillColor : null,
+                    fillColor:
+                        !widget.enabled ? SFTheme.readOnlyFillColor : null,
                   ),
                   menuStyle: MenuStyle(
                     backgroundColor: WidgetStatePropertyAll(
@@ -159,8 +168,8 @@ class _SFDropdownState<T> extends State<SFDropdown<T>> {
                         ),
                       ),
                     ),
-                    maximumSize:
-                        const WidgetStatePropertyAll(Size(double.infinity, 300)),
+                    maximumSize: const WidgetStatePropertyAll(
+                        Size(double.infinity, 300)),
                   ),
                   dropdownMenuEntries: widget.items
                       .map((item) => DropdownMenuEntry<T>(
@@ -185,7 +194,8 @@ class _SFDropdownState<T> extends State<SFDropdown<T>> {
                 padding: const EdgeInsets.only(left: 16, top: 6),
                 child: Text(
                   field.errorText!,
-                  style: TextStyle(color: theme.colorScheme.error, fontSize: 12),
+                  style:
+                      TextStyle(color: theme.colorScheme.error, fontSize: 12),
                 ),
               ),
           ],

@@ -75,7 +75,8 @@ enum SFIconButtonMode {
 /// ```
 class SFIconButton extends StatelessWidget {
   const SFIconButton({
-    required this.onPressed, super.key,
+    required this.onPressed,
+    super.key,
     this.text,
     this.icon,
     this.isLoading = false,
@@ -98,9 +99,9 @@ class SFIconButton extends StatelessWidget {
     this.spinnerStrokeWidth = 2,
     this.gap = 6,
   }) : assert(
-  backgroundColor == null || gradient == null,
-  'Provide either backgroundColor or gradient, not both.',
-  );
+          backgroundColor == null || gradient == null,
+          'Provide either backgroundColor or gradient, not both.',
+        );
 
   /// Called when tapped. Blocked while [isLoading] is true.
   final VoidCallback onPressed;
@@ -187,7 +188,7 @@ class SFIconButton extends StatelessWidget {
 
     // expanded mode → full width; compact → wrap content or explicit width
     final resolvedWidth =
-    mode == SFIconButtonMode.expanded ? double.infinity : width;
+        mode == SFIconButtonMode.expanded ? double.infinity : width;
 
     return SizedBox(
       height: height,
@@ -256,13 +257,13 @@ class SFIconButton extends StatelessWidget {
       width: spinnerSize,
       child: switch (spinnerStyle) {
         SFSpinnerStyle.android => CircularProgressIndicator(
-          strokeWidth: spinnerStrokeWidth,
-          valueColor: AlwaysStoppedAnimation<Color>(textColor),
-        ),
+            strokeWidth: spinnerStrokeWidth,
+            valueColor: AlwaysStoppedAnimation<Color>(textColor),
+          ),
         SFSpinnerStyle.ios => CupertinoActivityIndicator(
-          radius: spinnerSize / 1.5,
-          color: textColor,
-        ),
+            radius: spinnerSize / 1.5,
+            color: textColor,
+          ),
       },
     );
   }

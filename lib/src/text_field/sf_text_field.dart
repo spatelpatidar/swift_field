@@ -38,7 +38,9 @@ import '../theme/sf_theme.dart';
 /// ```
 class SFTextField extends StatelessWidget {
   const SFTextField({
-    required this.controller, required this.labelText, super.key,
+    required this.controller,
+    required this.labelText,
+    super.key,
     this.prefixIcon,
     this.suffixIcon,
     this.suffixWidget,

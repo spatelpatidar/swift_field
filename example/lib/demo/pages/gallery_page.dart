@@ -46,7 +46,7 @@ class GalleryPageState extends State<GalleryPage>
     ],
   ];
 
-  final List<Widget> SfPinCodes = [];
+  final List<Widget> sfPinCodes = [];
 
   @override
   void initState() {
@@ -58,13 +58,16 @@ class GalleryPageState extends State<GalleryPage>
       OtpPage(FilledRoundedSFPinCode()),
       OtpPage(Filled()),
     ];
-    SfPinCodes.addAll([
-      AllSFPinCodes(otpPages.map((e) => e.SFPinCode).toList(), backgroundColors),
+    sfPinCodes.addAll([
+      AllSFPinCodes(
+        otpPages.map((e) => e.sfPinCode).toList(),
+        backgroundColors,
+      ),
       ...otpPages,
     ]);
 
     _tabController = TabController(
-      length: SfPinCodes.length,
+      length: sfPinCodes.length,
       vsync: this,
       initialIndex: 1,
     );
@@ -113,14 +116,14 @@ class GalleryPageState extends State<GalleryPage>
                   TabBar(
                     controller: _tabController,
                     isScrollable: true,
-                    tabs: SfPinCodes.map((item) {
+                    tabs: sfPinCodes.map((item) {
                       return Tab(text: '$item');
                     }).toList(),
                   ),
                   Expanded(
                     child: TabBarView(
                       controller: _tabController,
-                      children: SfPinCodes,
+                      children: sfPinCodes,
                     ),
                   ),
                 ],

@@ -96,33 +96,33 @@ void main() {
     });
 
     testWidgets('shows CupertinoActivityIndicator for ios spinnerStyle',
-            (tester) async {
-          await tester.pumpWidget(
-            MaterialApp(
-              home: Scaffold(
-                body: SFButton(
-                  text: 'Submit',
-                  onPressed: () {},
-                  isLoading: true,
-                  spinnerStyle: SFSpinnerStyle.ios,
-                ),
-              ),
+        (tester) async {
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: SFButton(
+              text: 'Submit',
+              onPressed: () {},
+              isLoading: true,
+              spinnerStyle: SFSpinnerStyle.ios,
             ),
-          );
-          expect(find.byType(CircularProgressIndicator), findsNothing);
-        });
+          ),
+        ),
+      );
+      expect(find.byType(CircularProgressIndicator), findsNothing);
+    });
 
     testWidgets('assert throws when both backgroundColor and gradient set',
-            (tester) async {
-          expect(
-                () => SFButton(
-              text: 'Bad',
-              onPressed: () {},
-              backgroundColor: Colors.red,
-              gradient: const LinearGradient(colors: [Colors.blue, Colors.green]),
-            ),
-            throwsAssertionError,
-          );
-        });
+        (tester) async {
+      expect(
+        () => SFButton(
+          text: 'Bad',
+          onPressed: () {},
+          backgroundColor: Colors.red,
+          gradient: const LinearGradient(colors: [Colors.blue, Colors.green]),
+        ),
+        throwsAssertionError,
+      );
+    });
   });
 }

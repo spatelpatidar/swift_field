@@ -5,9 +5,9 @@ import 'package:swift_field/swift_field.dart';
 class Formatter extends TextInputFormatter {
   @override
   TextEditingValue formatEditUpdate(
-      TextEditingValue oldValue,
-      TextEditingValue newValue,
-      ) {
+    TextEditingValue oldValue,
+    TextEditingValue newValue,
+  ) {
     if (newValue.text.length <= 3) {
       return oldValue;
     }

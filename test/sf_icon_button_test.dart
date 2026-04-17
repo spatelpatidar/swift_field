@@ -42,7 +42,8 @@ void main() {
       expect(tapped, isTrue);
     });
 
-    testWidgets('shows spinner and hides content when isLoading', (tester) async {
+    testWidgets('shows spinner and hides content when isLoading',
+        (tester) async {
       await tester.pumpWidget(
         MaterialApp(
           home: Scaffold(
@@ -61,41 +62,41 @@ void main() {
     });
 
     testWidgets('compact mode — SizedBox has no explicit full width',
-            (tester) async {
-          await tester.pumpWidget(
-            MaterialApp(
-              home: Scaffold(
-                body: Row(
-                  children: [
-                    SFIconButton(
-                      text: 'Compact',
-                      onPressed: () {},
-                      mode: SFIconButtonMode.compact,
-                    ),
-                  ],
+        (tester) async {
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: Row(
+              children: [
+                SFIconButton(
+                  text: 'Compact',
+                  onPressed: () {},
+                  mode: SFIconButtonMode.compact,
                 ),
-              ),
+              ],
             ),
-          );
-          expect(find.text('Compact'), findsOneWidget);
-        });
+          ),
+        ),
+      );
+      expect(find.text('Compact'), findsOneWidget);
+    });
 
     testWidgets('expanded mode — SizedBox uses double.infinity width',
-            (tester) async {
-          await tester.pumpWidget(
-            MaterialApp(
-              home: Scaffold(
-                body: SFIconButton(
-                  text: 'Expanded',
-                  onPressed: () {},
-                  mode: SFIconButtonMode.expanded,
-                ),
-              ),
+        (tester) async {
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: SFIconButton(
+              text: 'Expanded',
+              onPressed: () {},
+              mode: SFIconButtonMode.expanded,
             ),
-          );
-          final sizedBox = tester.widget<SizedBox>(find.byType(SizedBox).first);
-          expect(sizedBox.width, double.infinity);
-        });
+          ),
+        ),
+      );
+      final sizedBox = tester.widget<SizedBox>(find.byType(SizedBox).first);
+      expect(sizedBox.width, double.infinity);
+    });
 
     testWidgets('renders with gradient', (tester) async {
       await tester.pumpWidget(

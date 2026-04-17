@@ -107,66 +107,66 @@ void main() {
     });
 
     testWidgets('selecting a filtered item calls onChanged and closes panel',
-            (tester) async {
-          String? selected;
-          await tester.pumpWidget(buildWidget(onChanged: (val) => selected = val));
+        (tester) async {
+      String? selected;
+      await tester.pumpWidget(buildWidget(onChanged: (val) => selected = val));
 
-          await tester.tap(find.byType(InputDecorator));
-          await tester.pumpAndSettle();
+      await tester.tap(find.byType(InputDecorator));
+      await tester.pumpAndSettle();
 
-          // Filter down to one result so it's definitely on screen
-          await tester.enterText(find.byType(TextField), 'aus');
-          await tester.pump();
+      // Filter down to one result so it's definitely on screen
+      await tester.enterText(find.byType(TextField), 'aus');
+      await tester.pump();
 
-          expect(find.text('Australia'), findsOneWidget);
-          await tester.tap(find.text('Australia'));
-          await tester.pumpAndSettle();
+      expect(find.text('Australia'), findsOneWidget);
+      await tester.tap(find.text('Australia'));
+      await tester.pumpAndSettle();
 
-          expect(selected, 'Australia');
-          // Panel closed — search box is gone
-          expect(find.byType(TextField), findsNothing);
-        });
+      expect(selected, 'Australia');
+      // Panel closed — search box is gone
+      expect(find.byType(TextField), findsNothing);
+    });
 
     testWidgets('selected label shown in field after selection',
-            (tester) async {
-          String? selected;
+        (tester) async {
+      String? selected;
 
-          await tester.pumpWidget(
-            StatefulBuilder(
-              builder: (context, setState) => MaterialApp(
-                home: Scaffold(
-                  body: Align(
-                    alignment: Alignment.topCenter,
-                    child: SizedBox(
-                      width: 400,
-                      child: SFDropdownSearch<String>(
-                        labelText: 'Country',
-                        value: selected,
-                        items: countries,
-                        onChanged: (val) => setState(() => selected = val),
-                        searchHintText: 'Search...',
-                      ),
-                    ),
+      await tester.pumpWidget(
+        StatefulBuilder(
+          builder: (context, setState) => MaterialApp(
+            home: Scaffold(
+              body: Align(
+                alignment: Alignment.topCenter,
+                child: SizedBox(
+                  width: 400,
+                  child: SFDropdownSearch<String>(
+                    labelText: 'Country',
+                    value: selected,
+                    items: countries,
+                    onChanged: (val) => setState(() => selected = val),
+                    searchHintText: 'Search...',
                   ),
                 ),
               ),
             ),
-          );
+          ),
+        ),
+      );
 
-          await tester.tap(find.byType(InputDecorator));
-          await tester.pumpAndSettle();
+      await tester.tap(find.byType(InputDecorator));
+      await tester.pumpAndSettle();
 
-          // Filter to just one visible result to avoid off-screen tap issues
-          await tester.enterText(find.byType(TextField), 'ger');
-          await tester.pump();
+      // Filter to just one visible result to avoid off-screen tap issues
+      await tester.enterText(find.byType(TextField), 'ger');
+      await tester.pump();
 
-          expect(find.text('Germany'), findsOneWidget);
-          await tester.tap(find.text('Germany'));
-          await tester.pumpAndSettle();
+      expect(find.text('Germany'), findsOneWidget);
+      await tester.tap(find.text('Germany'));
+      await tester.pumpAndSettle();
 
-          // After selection the field should display 'Germany'
-          expect(find.text('Germany'), findsOneWidget);
-        });
+      // After selection the field should display 'Germany'
+      expect(find.text('Germany'), findsOneWidget);
+    });
 
     testWidgets('tapping outside the panel closes it', (tester) async {
       await tester.pumpWidget(

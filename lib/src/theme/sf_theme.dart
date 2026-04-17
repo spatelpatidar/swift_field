@@ -54,20 +54,20 @@ class SFTheme {
 
   /// Creates an [OutlineInputBorder] using the theme's [borderRadius].
   static OutlineInputBorder get defaultBorder => OutlineInputBorder(
-    borderRadius: BorderRadius.circular(borderRadius),
-  );
+        borderRadius: BorderRadius.circular(borderRadius),
+      );
 
   /// Creates an enabled [OutlineInputBorder] with a grey color.
   static OutlineInputBorder get enabledBorder => OutlineInputBorder(
-    borderRadius: BorderRadius.circular(borderRadius),
-    borderSide: BorderSide(color: Colors.grey.shade400),
-  );
+        borderRadius: BorderRadius.circular(borderRadius),
+        borderSide: BorderSide(color: Colors.grey.shade400),
+      );
 
   /// Creates a focused [OutlineInputBorder] using [primaryColor].
   static OutlineInputBorder get focusedBorder => OutlineInputBorder(
-    borderRadius: BorderRadius.circular(borderRadius),
-    borderSide: BorderSide(color: primaryColor, width: 2),
-  );
+        borderRadius: BorderRadius.circular(borderRadius),
+        borderSide: BorderSide(color: primaryColor, width: 2),
+      );
 
   /// Creates a standard [InputDecoration] with common properties applied.
   static InputDecoration buildDecoration({
@@ -77,7 +77,7 @@ class SFTheme {
     Widget? suffixWidget,
     bool readOnly = false,
     EdgeInsetsGeometry contentPadding =
-    const EdgeInsets.symmetric(horizontal: 12, vertical: 14),
+        const EdgeInsets.symmetric(horizontal: 12, vertical: 14),
   }) {
     return InputDecoration(
       labelText: labelText,
@@ -87,7 +87,7 @@ class SFTheme {
       focusedBorder: focusedBorder,
       prefixIcon: prefixIcon != null ? Icon(prefixIcon) : null,
       suffixIcon:
-      suffixWidget ?? (suffixIcon != null ? Icon(suffixIcon) : null),
+          suffixWidget ?? (suffixIcon != null ? Icon(suffixIcon) : null),
       filled: readOnly,
       fillColor: readOnly ? readOnlyFillColor : null,
       contentPadding: contentPadding,

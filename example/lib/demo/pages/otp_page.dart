@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class OtpPage extends StatefulWidget {
-  final Widget SFPinCode;
+  final Widget sfPinCode;
 
-  const OtpPage(this.SFPinCode, {super.key});
+  const OtpPage(this.sfPinCode, {super.key});
 
   @override
   State<OtpPage> createState() => _OtpPageState();
 
   @override
-  String toStringShort() => SFPinCode.toStringShort();
+  String toStringShort() => sfPinCode.toStringShort();
 }
 
 class _OtpPageState extends State<OtpPage> with AutomaticKeepAliveClientMixin {
@@ -22,7 +22,7 @@ class _OtpPageState extends State<OtpPage> with AutomaticKeepAliveClientMixin {
       child: Column(
         children: [
           const OtpHeader(),
-          widget.SFPinCode,
+          widget.sfPinCode,
           const SizedBox(height: 44),
           Text(
             'Didn’t receive code?',

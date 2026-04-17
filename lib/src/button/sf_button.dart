@@ -61,7 +61,9 @@ import 'sf_icon_button.dart'; // re-uses SFSpinnerStyle enum
 /// ```
 class SFButton extends StatelessWidget {
   const SFButton({
-    required this.onPressed, required this.text, super.key,
+    required this.onPressed,
+    required this.text,
+    super.key,
     this.isLoading = false,
     this.spinnerStyle = SFSpinnerStyle.android,
     this.backgroundColor,
@@ -77,9 +79,9 @@ class SFButton extends StatelessWidget {
     this.spinnerSize = 20,
     this.spinnerStrokeWidth = 2.5,
   }) : assert(
-  backgroundColor == null || gradient == null,
-  'Provide either backgroundColor or gradient, not both.',
-  );
+          backgroundColor == null || gradient == null,
+          'Provide either backgroundColor or gradient, not both.',
+        );
 
   /// The button label text.
   final String text;
@@ -183,13 +185,13 @@ class SFButton extends StatelessWidget {
       width: spinnerSize,
       child: switch (spinnerStyle) {
         SFSpinnerStyle.android => CircularProgressIndicator(
-          strokeWidth: spinnerStrokeWidth,
-          valueColor: AlwaysStoppedAnimation<Color>(textColor),
-        ),
+            strokeWidth: spinnerStrokeWidth,
+            valueColor: AlwaysStoppedAnimation<Color>(textColor),
+          ),
         SFSpinnerStyle.ios => CupertinoActivityIndicator(
-          radius: spinnerSize / 1.5,
-          color: textColor,
-        ),
+            radius: spinnerSize / 1.5,
+            color: textColor,
+          ),
       },
     );
   }

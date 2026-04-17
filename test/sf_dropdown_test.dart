@@ -119,25 +119,25 @@ void main() {
     });
 
     testWidgets('SFDropdownItem disabled flag — widget renders without error',
-            (tester) async {
-          final mixedItems = [
-            const SFDropdownItem(value: 'A', label: 'Alpha'),
-            const SFDropdownItem(value: 'B', label: 'Beta', enabled: false),
-          ];
-          await tester.pumpWidget(
-            MaterialApp(
-              home: Scaffold(
-                body: SFDropdown<String>(
-                  labelText: 'Letter',
-                  items: mixedItems,
-                  onChanged: (_) {},
-                ),
-              ),
+        (tester) async {
+      final mixedItems = [
+        const SFDropdownItem(value: 'A', label: 'Alpha'),
+        const SFDropdownItem(value: 'B', label: 'Beta', enabled: false),
+      ];
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: SFDropdown<String>(
+              labelText: 'Letter',
+              items: mixedItems,
+              onChanged: (_) {},
             ),
-          );
-          // DropdownMenu renders label in two places — use findsWidgets
-          expect(find.text('Letter'), findsWidgets);
-        });
+          ),
+        ),
+      );
+      // DropdownMenu renders label in two places — use findsWidgets
+      expect(find.text('Letter'), findsWidgets);
+    });
 
     testWidgets('disabled field cannot be interacted with', (tester) async {
       String? selected;

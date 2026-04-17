@@ -31,7 +31,9 @@ import '../theme/sf_theme.dart';
 /// ```
 class SFPasswordField extends StatefulWidget {
   const SFPasswordField({
-    required this.controller, required this.labelText, super.key,
+    required this.controller,
+    required this.labelText,
+    super.key,
     this.prefixIcon = Icons.lock_outline,
     this.visibleIcon = Icons.visibility_outlined,
     this.hiddenIcon = Icons.visibility_off_outlined,

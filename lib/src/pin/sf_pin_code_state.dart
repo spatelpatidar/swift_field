@@ -291,7 +291,9 @@ class _SFPinCodeState extends State<SFPinCode>
     assert(debugCheckHasDirectionality(context));
     final isDense = widget.mainAxisAlignment == MainAxisAlignment.center;
 
-    return isDense ? IntrinsicWidth(child: _buildSFPinCode()) : _buildSFPinCode();
+    return isDense
+        ? IntrinsicWidth(child: _buildSFPinCode())
+        : _buildSFPinCode();
   }
 
   Widget _buildSFPinCode() {

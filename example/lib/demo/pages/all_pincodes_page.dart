@@ -7,7 +7,8 @@ class AllSFPinCodes extends StatefulWidget {
   const AllSFPinCodes(this.pinCodes, this.colors, {super.key});
 
   @override
-  _AllSFPinCodesState createState() => _AllSFPinCodesState();
+  State<AllSFPinCodes> createState() => _AllSFPinCodesState(); // Change the return type here
+  // _AllSFPinCodesState createState() => _AllSFPinCodesState();
 
   @override
   String toStringShort() => 'All';

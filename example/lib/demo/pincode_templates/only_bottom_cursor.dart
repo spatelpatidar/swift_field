@@ -6,7 +6,7 @@ class OnlyBottomCursor extends StatefulWidget {
   const OnlyBottomCursor({super.key});
 
   @override
-  _OnlyBottomCursorState createState() => _OnlyBottomCursorState();
+  State<OnlyBottomCursor> createState() => _OnlyBottomCursorState(); // Change the return type here
 
   @override
   String toStringShort() => 'With Bottom Cursor';

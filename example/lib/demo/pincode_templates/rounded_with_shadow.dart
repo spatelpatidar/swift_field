@@ -6,7 +6,7 @@ class RoundedWithShadow extends StatefulWidget {
   const RoundedWithShadow({super.key});
 
   @override
-  _RoundedWithShadowState createState() => _RoundedWithShadowState();
+  State<RoundedWithShadow> createState() => _RoundedWithShadowState(); // Change the return type here
 
   @override
   String toStringShort() => 'Rounded With Shadow';

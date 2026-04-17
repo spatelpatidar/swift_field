@@ -1,3 +1,188 @@
+// import 'package:flutter/foundation.dart';
+// import 'package:flutter/material.dart';
+// import 'package:flutter/services.dart';
+// import 'package:swift_field/swift_field.dart';
+// import 'package:smart_auth/smart_auth.dart';
+
+// void main() {
+//   runApp(
+//     MaterialApp(
+//       debugShowCheckedModeBanner: false,
+//       home: Scaffold(
+//         appBar: AppBar(
+//           backgroundColor: Colors.white,
+//           elevation: 0,
+//           title: const Text('SFPinCode Example'),
+//           centerTitle: true,
+//           titleTextStyle: const TextStyle(
+//             fontSize: 22,
+//             fontWeight: FontWeight.w600,
+//             color: Color.fromRGBO(30, 60, 87, 1),
+//           ),
+//         ),
+//         body: const FractionallySizedBox(
+//           widthFactor: 1,
+//           // You can also checkout the [SFPincodeBuilderExample]
+//           child: SFPincodeExample(),
+//         ),
+//       ),
+//     ),
+//   );
+// }
+
+// /// This is the basic usage of SFPinCode
+// /// For more examples check out the demo directory
+// class SFPincodeExample extends StatefulWidget {
+//   const SFPincodeExample({super.key});
+
+//   @override
+//   State<SFPincodeExample> createState() => _SFPincodeExampleState();
+// }
+
+// class _SFPincodeExampleState extends State<SFPincodeExample> {
+//   late final SmsRetriever smsRetriever;
+//   late final TextEditingController pinController;
+//   late final FocusNode focusNode;
+//   late final GlobalKey<FormState> formKey;
+
+//   @override
+//   void initState() {
+//     super.initState();
+//     // On web, disable the browser's context menu since this example uses a custom
+//     // Flutter-rendered context menu.
+//     if (kIsWeb) {
+//       BrowserContextMenu.disableContextMenu();
+//     }
+//     formKey = GlobalKey<FormState>();
+//     pinController = TextEditingController();
+//     focusNode = FocusNode();
+
+//     /// In case you need an SMS autofill feature
+//     // smsRetriever = SmsRetrieverImpl(SmartAuth.instance);
+//   }
+
+//   @override
+//   void dispose() {
+//     if (kIsWeb) {
+//       BrowserContextMenu.enableContextMenu();
+//     }
+//     pinController.dispose();
+//     focusNode.dispose();
+//     super.dispose();
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     const focusedBorderColor = Color.fromRGBO(23, 171, 144, 1);
+//     const fillColor = Color.fromRGBO(243, 246, 249, 0);
+//     const borderColor = Color.fromRGBO(23, 171, 144, 0.4);
+
+//     final defaultPinTheme = SFPinTheme(
+//       width: 56,
+//       height: 56,
+//       textStyle: const TextStyle(
+//         fontSize: 22,
+//         color: Color.fromRGBO(30, 60, 87, 1),
+//       ),
+//       decoration: BoxDecoration(
+//         borderRadius: BorderRadius.circular(19),
+//         border: Border.all(color: borderColor),
+//       ),
+//     );
+
+//     /// Optionally you can use form to validate the SFPinCode
+//     return Form(
+//       key: formKey,
+//       child: Column(
+//         mainAxisAlignment: MainAxisAlignment.center,
+//         children: [
+//           Directionality(
+//             // Specify direction if desired
+//             textDirection: TextDirection.ltr,
+//             child: SFPinCode(
+//               // You can pass your own SmsRetriever implementation based on any package
+//               // in this example we are using the SmartAuth
+//               smsRetriever: smsRetriever,
+//               controller: pinController,
+//               focusNode: focusNode,
+//               defaultSFPinTheme: defaultPinTheme,
+//               separatorBuilder: (index) => const SizedBox(width: 8),
+//               validator: (value) {
+//                 return value == '2222' ? null : 'Pin is incorrect';
+//               },
+//               hapticFeedbackType: SFHapticFeedbackType.lightImpact,
+//               onCompleted: (pin) {
+//                 debugPrint('onCompleted: $pin');
+//               },
+//               onChanged: (value) {
+//                 debugPrint('onChanged: $value');
+//               },
+//               cursor: Column(
+//                 mainAxisAlignment: MainAxisAlignment.end,
+//                 children: [
+//                   Container(
+//                     margin: const EdgeInsets.only(bottom: 9),
+//                     width: 22,
+//                     height: 1,
+//                     color: focusedBorderColor,
+//                   ),
+//                 ],
+//               ),
+//               focusedSFPinTheme: defaultPinTheme.copyWith(
+//                 decoration: defaultPinTheme.decoration!.copyWith(
+//                   borderRadius: BorderRadius.circular(8),
+//                   border: Border.all(color: focusedBorderColor),
+//                 ),
+//               ),
+//               submittedSFPinTheme: defaultPinTheme.copyWith(
+//                 decoration: defaultPinTheme.decoration!.copyWith(
+//                   color: fillColor,
+//                   borderRadius: BorderRadius.circular(19),
+//                   border: Border.all(color: focusedBorderColor),
+//                 ),
+//               ),
+//               errorSFPinTheme: defaultPinTheme.copyBorderWith(
+//                 border: Border.all(color: Colors.redAccent),
+//               ),
+//             ),
+//           ),
+//           TextButton(
+//             onPressed: () {
+//               focusNode.unfocus();
+//               formKey.currentState!.validate();
+//             },
+//             child: const Text('Validate'),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }
+
+// /// You, as a developer should implement this interface.
+// /// You can use any package to retrieve the SMS code. in this example we are using SmartAuth
+// class SmsRetrieverImpl implements SmsRetriever {
+//   const SmsRetrieverImpl(this.smartAuth);
+
+//   final SmartAuth smartAuth;
+
+//   @override
+//   Future<void> dispose() {
+//     return smartAuth.removeUserConsentApiListener();
+//   }
+
+//   @override
+//   Future<String?> getSmsCode() async {
+//     final signature = await smartAuth.getAppSignature();
+//     debugPrint('App Signature: $signature');
+//     final res = await smartAuth.getSmsWithUserConsentApi();
+//     return res.data?.code;
+//   }
+
+//   @override
+//   bool get listenForMultipleSms => false;
+// }
+
 import 'package:flutter/material.dart';
 import 'package:swift_field/swift_field.dart';
 
