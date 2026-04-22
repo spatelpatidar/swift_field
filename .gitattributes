@@ -8,3 +8,7 @@ example/web/** linguist-documentation
 
 # If you accidentally committed build files
 build/** linguist-vendored
+*.html linguist-vendored
+*.css linguist-vendored
+web/* linguist-vendored
+doc/* linguist-vendored
